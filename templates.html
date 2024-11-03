@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Resume</title>
+    <link rel="stylesheet" href="css/style2.css">
+    <!----box icon link------------->
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!----remix icon link------------->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!----google font link------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS to make all images the same size */
+        .template-img {
+            height: 150px; /* Set a fixed height */
+            width: 150px;  /* Set a fixed width */
+            object-fit: cover; /* Ensures image fills the area while maintaining aspect ratio */
+            margin: 10px; /* Add spacing between images */
+            border-radius: 8px; /* Optional: Adds rounded corners */
+        }
+    </style>
+</head>
+<body>
+    <!----header------>
+    <header>
+        <a href="#" class="logo">
+            <img src="img/logo.png" alt="Logo">
+        </a>
+        <ul class="navlist">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="templates.html">Templates</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+        <div class="right-content">
+            <a href="index.html" class="nav-btn">Sign In</a>
+            <div class="bx bx-men" id="menu-icon"></div>
+        </div>
+    </header>
+    
+    <!----hero------>
+    <section class="hero">
+        <div style="display: flex; justify-content: center;">
+            <h1 style="color: whitesmoke; text-align: center;">
+                CHOOSE ANY SAMPLE FROM GIVEN TEMPLATES
+            </h1>
+        </div>
+        <div class="container" style="display: flex; justify-content: center;">
+            <div class="Arpit">
+                <a href="res2(o).html"><img src="img/professional.png" alt="Professional Template" class="template-img"></a>
+                <a href="arpitres.html"><img src="img/modern.png" alt="Modern Template" class="template-img"></a>
+                <a href="arpsm.html"><img src="img/image.png" alt="Image Template" class="template-img"></a>
+                <a href="res1.html"><img src="img/res1img.png" alt="Resume Template 1" class="template-img"></a>
+            </div>
+        </div>
+    </section>
+
+    <script src="app1.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        offset: 1,
+      });
+    </script>
+</body>
+</html>

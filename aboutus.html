@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="stylesheet" href="css/styleabout.css">
+  
+</head>
+<body>
+    <!----header------>
+    <header>
+      <a href="#" class="logo">
+          <img src="img/logo.png">
+      </a>
+      <ul class="navlist">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="templates.html">Templates</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+
+      </ul>
+      <div class="right-content">
+          <a href="index.html" class="nav-btn">Sign In</a>
+          <div class="bx bx-men" id="menu-icon"></div>
+      </div>
+  </header>
+  <div class="container">
+    <h1>About Us</h1>
+
+    <div class="founders-box">
+      <!-- Founder 1 -->
+      <div class="founder">
+        <img src="img/simran.jpg" alt="Founder 1">
+        <div class="founder-details">
+          <div class="founder-name">Simran</div>
+          <div class="about-text">
+            Simran's technical prowess is unmatched, always pushing the envelope in web development. Her deep understanding of both front-end and back-end technologies sets her apart. From solving complex programming challenges with ease to seamlessly integrating advanced features, Simran is often the driving force behind our most ambitious projects.Her knack for grasping emerging trends in web development and applying them with confidence truly showcases her talent. When we hit a roadblock, Simran’s innovative solutions always get us moving forward again.
+          </div>
+        </div>
+      </div>
+
+      <!-- Founder 2 -->
+      <div class="founder">
+        <img src="img/mehak.jpg" alt="Founder 2">
+        <div class="founder-details">
+          <div class="founder-name">Mahak Ahuja</div>
+          <div class="about-text">
+            Mahak brings creativity and functionality together beautifully. Her strength in crafting intuitive user interfaces, coupled with a solid understanding of front-end technologies, makes her the perfect complement to Simran's technical depth. Her work in creating responsive, visually engaging designs ensures that every project we complete looks professional and user-friendly. Mehak is also skilled in CSS and design frameworks, making sure the user experience is always top-notch. With her dedication to clean and effective design, she ensures that every website stands out, both aesthetically and practically.
+          </div>
+        </div>
+      </div>
+
+      <!-- Founder 3 -->
+      <div class="founder">
+        <img src="img/lakshmi.jpg" alt="Founder 3">
+        <div class="founder-details">
+          <div class="founder-name">Lakshmi Gupta</div>
+          <div class="about-text">
+            Lakshmi has contributed to the team in meaningful ways, focusing on key aspects like organizing project workflows and ensuring that basic functionality is in place. While her involvement has been lighter, her support with managing simpler tasks has helped the team stay on track and move forward. Her attention to detail and willingness to help where needed has been appreciated in every project.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let lastScrollTop = 0;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // Scrolling down
+        header.style.top = '-80px'; // Adjust this value to the height of your header
+    } else {
+        // Scrolling up
+        header.style.top = '0';
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+});
+
+  </script>
+</body>
+</html>

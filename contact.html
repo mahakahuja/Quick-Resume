@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+     <!----header------>
+     <header>
+        <a href="#" class="logo">
+            <img src="img/logo.png">
+        </a>
+        <ul class="navlist">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="templates.html">Templates</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+
+        </ul>
+        <div class="right-content">
+            <a href="index.html" class="nav-btn">Sign In</a>
+            <div class="bx bx-men" id="menu-icon"></div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form id="contactForm" action="back.php" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile No:</label>
+                <input type="tel" id="mobile" name="mobile" required>
+            </div>
+            <div class="form-group">
+                <label for="query">Query:</label>
+                <textarea id="query" name="query" rows="4" required></textarea>
+            </div>
+            <button type="submit"><a href="thankyou.html">Contact Now</a></button>
+        </form>
+    </div>
+
+    <script src="js/contactt.js"></script> 
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Builder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1f1d1d;
+    }
+
+    .resume-container {
+      width: 90%;  /* Larger container */
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      border: 2px solid yellow; /* Yellow border for the entire resume */
+    }
+
+    .left-column, .right-column {
+      width: 48%;
+      margin: 1%;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .photo-upload {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .photo-upload img {
+      max-width: 120px; /* Larger photo size */
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .upload-btn {
+      display: inline-block;
+      background-color: #008cba;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .header input, .contact-info input, .section input, .section textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 18px;
+      border: 1px solid yellow; /* Yellow border for input fields */
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    h3 {
+      background-color: #008cba;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .action-buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .action-buttons button {
+      padding: 10px 20px;
+      background-color: #008cba;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    /* Adjusted height for certain text areas */
+    #profile-summary, #academic-achievements, #experience, #education, #hobbies {
+      height: 150px; /* Increased height for these fields */
+    }
+  </style>
+</head>
+<body>
+  <div class="resume-container">
+
+    <!-- Left Column -->
+    <div class="left-column">
+      <div class="header">
+        <input type="text" id="full-name" placeholder="Full Name">
+        <input type="text" id="job-title" placeholder="Job Title">
+      </div>
+
+      <div class="photo-upload">
+        <label for="upload-photo" class="upload-btn">Upload Photo</label>
+        <input type="file" id="upload-photo" accept="image/*" onchange="loadPhoto(event)">
+        <div class="error" id="photo-error"></div>
+        <img id="photo-preview" src="#" alt="Profile Photo" style="display: none;">
+      </div>
+
+      <div class="section">
+        <h3>Skills</h3>
+        <input type="text" id="skills" placeholder="Skills (separate by commas)">
+      </div>
+
+      <div class="section">
+        <h3>Languages</h3>
+        <input type="text" id="languages" placeholder="Languages (separate by commas)">
+      </div>
+
+      <div class="section">
+        <h3>Education</h3>
+        <textarea id="education" placeholder="Enter your education details"></textarea>
+      </div>
+
+      <div class="section">
+        <h3>Hobbies</h3>
+        <textarea id="hobbies" placeholder="Enter your hobbies (separate by commas)"></textarea>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="right-column">
+      <div class="contact-info">
+        <input type="email" id="email" placeholder="Email" required>
+        <div class="error" id="email-error"></div>
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+        <div class="error" id="phone-error"></div>
+        <input type="text" id="address" placeholder="Address">
+        <input type="text" id="linkedin" placeholder="LinkedIn Profile">
+        <input type="text" id="github" placeholder="GitHub Profile"> <!-- Added GitHub profile input -->
+      </div>
+
+      <div class="section">
+        <h3>Profile Summary</h3>
+        <textarea id="profile-summary" placeholder="Enter your profile summary"></textarea>
+      </div>
+
+      <div class="section">
+        <h3>Academic Achievements</h3> <!-- Added Academic Achievements section -->
+        <textarea id="academic-achievements" placeholder="Enter your academic achievements"></textarea>
+      </div>
+
+      <div class="section">
+        <h3>Professional Experience</h3>
+        <textarea id="experience" placeholder="Enter your professional experience"></textarea>
+      </div>
+    </div>
+
+    <div class="action-buttons" style="width: 100%;">
+      <button id="generate-resume" onclick="validateAndPrint()">Print Resume</button>
+    </div>
+
+  </div>
+
+  <script>
+    // Load profile photo
+    function loadPhoto(event) {
+      const photoPreview = document.getElementById('photo-preview');
+      const file = event.target.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function() {
+          photoPreview.src = reader.result;
+          photoPreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // Validate and print resume
+    function validateAndPrint() {
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const emailError = document.getElementById('email-error');
+      const phoneError = document.getElementById('phone-error');
+      const photo = document.getElementById('upload-photo');
+      const photoError = document.getElementById('photo-error');
+
+      // Reset errors
+      emailError.innerHTML = '';
+      phoneError.innerHTML = '';
+      photoError.innerHTML = '';
+
+      // Validate email
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      if (!emailPattern.test(email)) {
+        emailError.innerHTML = 'Please enter a valid email address';
+        return false;
+      }
+
+      // Validate phone number
+      const phonePattern = /^\+?[0-9]{10,13}$/;
+      if (!phonePattern.test(phone)) {
+        phoneError.innerHTML = 'Please enter a valid phone number (10-13 digits)';
+        return false;
+      }
+
+      // Validate photo upload
+      if (!photo.files[0]) {
+        photoError.innerHTML = 'Please upload a profile photo';
+        return false;
+      }
+
+      // If validations pass, print the resume
+      printResume();
+    }
+
+    // Print resume
+    function printResume() {
+      window.print();
+    }
+  </script>
+</body>
+</html>
